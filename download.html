@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Téléchargement Minecraft Launcher</title>
+    <style>
+        /* Style global de la page */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Conteneur principal */
+        .download-container {
+            text-align: center;
+            background: #1e1e1e;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid #2a2a2a;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #aaaaaa;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        /* Style du bouton */
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            text-decoration: none;
+            padding: 14px 28px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+
+        /* Effets au survol et clic */
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
+        }
+
+        .btn-download:active {
+            transform: translateY(1px);
+        }
+
+        /* Icône SVG */
+        .btn-download svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+    </style>
+</head>
+<body>
+    <div class="download-container">
+        <h1>Télécharger Minecraft</h1>
+        <h2>Télécharger le Launcher</h2>
+        <p>Cliquez sur le bouton ci-dessous pour lancer le téléchargement direct.</p>
+        <p>Une petite fenètre va s'ouvrir et vous demander d'enregistrer le fichier cliquez dessu et il va se télécharger</p>
+
+        <a href="https://github.com/Bowser245/DownloadMCLuncher/releases/download/v1.0.0/MinecraftInstallationSetup.exe" class="btn-download">
+            <svg viewBox="0 0 24 24">
+                <path d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"/>
+            </svg>
+            Télécharger maintenant
+        </a>
+
+    </div>
+
+</body>
+</html>
