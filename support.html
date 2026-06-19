@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MC Launcher - Centre d'Assistance</title>
+    <style>
+        :root {
+            --bg-color: #1e1e2e;
+            --container-bg: #11111b;
+            --accent-color: #a6e3a1;
+            --text-color: #cdd6f4;
+            --text-muted: #a6adc8;
+            --card-bg: #181825;
+            --border-color: #313244;
+            --blue: #89b4fa;
+            --red: #f38ba8;
+            --peach: #fab387;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Barre de Navigation */
+        nav {
+            background-color: var(--container-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--red);
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 1.05rem;
+        }
+
+        /* Grille des catégories de pannes */
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .support-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .support-card:hover {
+            border-color: var(--blue);
+            transform: translateY(-3px);
+        }
+
+        .support-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .support-card h3 {
+            margin: 0 0 10px 0;
+            color: #ffffff;
+        }
+
+        .support-card p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Zone d'action Diagnostic de Logs */
+        .diagnostic-box {
+            background-color: var(--container-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+
+        .diagnostic-box h2 {
+            margin-top: 0;
+            color: #ffffff;
+            font-size: 1.4rem;
+        }
+
+        .log-instructions {
+            text-align: left;
+            margin: 20px 0;
+            background-color: #181825;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--peach);
+        }
+
+        .log-instructions ol {
+            margin: 0;
+            padding-left: 20px;
+            color: var(--text-muted);
+        }
+
+        .log-instructions li {
+            margin-bottom: 10px;
+        }
+
+        .log-instructions strong {
+            color: #ffffff;
+        }
+
+        code {
+            background-color: var(--container-bg);
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: var(--red);
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #585b70;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barre de Navigation -->
+    <nav>
+        <a href="index.html" class="logo">MC LAUNCHER</a>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="download.html">Télécharger</a></li>
+            <li><a href="wiki.html">Wiki</a></li>
+            <li><a href="status.html">Statut</a></li>
+            <li><a href="credits.html">Crédits</a></li>
+            <li><a href="support.html" style="color: var(--accent-color);">Support</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Centre d'Assistance</h1>
+        <p class="subtitle">Un problème avec le launcher ? Trouvez une solution ou préparez votre ticket de support.</p>
+
+        <!-- Grille de sélection des problèmes -->
+        <div class="support-grid">
+            <div class="support-card" onclick="window.location.href='wiki.html'">
+                <div class="icon">🖼️</div>
+                <h3>Problème de Skin</h3>
+                <p>Le skin ne s'affiche pas ou le dossier temporaire est introuvable en jeu.</p>
+            </div>
+            <div class="support-card" onclick="window.location.href='wiki.html'">
+                <div class="icon">⚡</div>
+                <h3>Allocation RAM / Lag</h3>
+                <p>Le jeu freeze, se ferme tout seul ou l'allocation automatique échoue.</p>
+            </div>
+            <div class="support-card" onclick="window.location.href='status.html'">
+                <div class="icon">🌐</div>
+                <h3>Erreur de Connexion</h3>
+                <p>Échec du téléchargement des versions ou des assets depuis les serveurs.</p>
+            </div>
+        </div>
+
+        <!-- Section d'extraction des logs de crash -->
+        <div class="diagnostic-box">
+            <h2>🐛 Le launcher crash ou refuse de se lancer ?</h2>
+            <p style="color: var(--text-muted); margin-bottom: 20px;">
+                Pour résoudre efficacement votre bug, vous devez nous fournir les lignes de logs générées par votre application.
+            </p>
+
+            <div class="log-instructions">
+                <ol>
+                    <li>Ouvrez l'explorateur de fichiers Windows et appuyez sur les touches <strong>Windows + R</strong>.</li>
+                    <li>Tapez <code>%appdata%\.minecraft_custom</code> et validez.</li>
+                    <li>Cherchez la zone d'affichage ou le fichier texte généré par la <strong>console verte/noire</strong> du launcher au moment du plantage.</li>
+                    <li>Copiez l'intégralité du texte d'erreur et transmettez-le sur notre espace communautaire (Discord ou fil GitHub Issues).</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        Espace d'aide technique autonome — MC Launcher
+    </footer>
+
+</body>
+  </html>
+  
