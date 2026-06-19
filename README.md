@@ -1,5 +1,5 @@
 # MC
-*https://bowser245.github.io/MC/downloadexe.html*
+*https://bowser245.github.io/MC/download.html*
 
 pour relancer le launcher vas ici:
 
