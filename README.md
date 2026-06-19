@@ -1,5 +1,5 @@
 # MC
-*https://bowser245.github.io/MC/home.html*
+*https://bowser245.github.io/MC/index.html*
 
 pour relancer le launcher vas ici:
 
