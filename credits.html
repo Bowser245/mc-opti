@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MC Launcher - Crédits & Sécurité</title>
+    <style>
+        :root {
+            --bg-color: #1e1e2e;
+            --container-bg: #11111b;
+            --accent-color: #a6e3a1;
+            --text-color: #cdd6f4;
+            --text-muted: #a6adc8;
+            --card-bg: #181825;
+            --border-color: #313244;
+            --blue: #89b4fa;
+            --red: #f38ba8;
+            --peach: #fab387;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Barre de Navigation */
+        nav {
+            background-color: var(--container-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--red);
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #ffffff;
+            font-size: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+
+        /* Section Staff / Créateur */
+        .staff-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .avatar {
+            width: 70px;
+            height: 70px;
+            background-color: var(--blue);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #11111b;
+        }
+
+        .staff-info h3 {
+            margin: 0;
+            font-size: 1.3rem;
+            color: #ffffff;
+        }
+
+        .role {
+            color: var(--peach);
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        /* Liste des technologies / Dépendances */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .tech-item {
+            background-color: var(--container-bg);
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .tech-item strong {
+            color: var(--accent-color);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Section Sécurité & Conditions */
+        .security-box {
+            background-color: rgba(243, 139, 168, 0.05);
+            border-left: 4px solid var(--red);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 20px;
+        }
+
+        .security-item {
+            margin-bottom: 20px;
+        }
+
+        .security-item h4 {
+            margin: 0 0 5px 0;
+            color: #ffffff;
+            font-size: 1.1rem;
+        }
+
+        .security-item p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #585b70;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">MC LAUNCHER</a>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="download.html">Télécharger</a></li>
+            <li><a href="wiki.html">Wiki</a></li>
+            <li><a href="status.html">Statut</a></li>
+            <li><a href="credits.html" style="color: var(--accent-color);">Crédits & Sécurité</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Crédits & Sécurité</h1>
+
+        <h2>L'Équipe du Projet</h2>
+        <div class="staff-card">
+            <div class="avatar">B</div>
+            <div class="staff-info">
+                <h3>Bowser245</h3>
+                <div class="role">Développeur Principal & Fondateur</div>
+                <p style="margin: 5px 0 0 0; color: var(--text-muted); font-size: 0.95rem;">
+                    Conception complète de l'interface graphique Tkinter, intégration du gestionnaire de RAM dynamique et programmation du système d'écoute matériel (Kill Switch).
+                </p>
+            </div>
+        </div>
+
+        <h2>Dépendances & Technologies</h2>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 5px;">
+            Ce launcher n'aurait pas pu voir le jour sans le travail formidable mis à disposition gratuitement par la communauté open-source :
+        </p>
+        <div class="tech-grid">
+            <div class="tech-item">
+                <strong>minecraft-launcher-lib</strong>
+                <p style="margin:0; font-size:0.85rem; color: var(--text-muted);">Gestion du protocole officiel Mojang, téléchargement du jeu et index des versions.</p>
+            </div>
+            <div class="tech-item">
+                <strong>pynput</strong>
+                <p style="margin:0; font-size:0.85rem; color: var(--text-muted);">Écoute globale des entrées clavier et souris pour déclencher les actions en arrière-plan.</p>
+            </div>
+            <div class="tech-item">
+                <strong>psutil</strong>
+                <p style="margin:0; font-size:0.85rem; color: var(--text-muted);">Calcul précis et monitoring des ressources système (mémoire vive CPU/RAM).</p>
+            </div>
+        </div>
+
+        <h2>Conditions d'Utilisation & Sécurité</h2>
+        <div class="security-box">
+            <div class="security-item">
+                <h4>🔒 Transparence & Open-Source</h4>
+                <p>Le code source de ce launcher est public et entièrement consultable sur le dépôt GitHub officiel. Aucun script malveillant ou caché n'est intégré au programme.</p>
+            </div>
+
+            <div class="security-item">
+                <h4>🛡️ Protection de vos Données</h4>
+                <p>Étant donné que le launcher utilise un mode de connexion local (Offline), **aucun identifiant, adresse email ou mot de passe officiel Microsoft n'est demandé ou enregistré**. Vos données personnelles restent privées.</p>
+            </div>
+
+            <div class="security-item">
+                <h4>🌍 Provenance des Fichiers</h4>
+                <p>Tous les fichiers exécutables du jeu Minecraft (fichiers .JAR, textures, sons officiels) sont directement téléchargés depuis les serveurs officiels de Mojang/Microsoft sans aucune modification intermédiaire.</p>
+            </div>
+
+            <div class="security-item" style="margin-bottom: 0;">
+                <h4>⚖️ Clause de Non-Responsabilité</h4>
+                <p>Ce launcher personnalisé est un projet indépendant qui n'est pas affilié, approuvé ou associé à Mojang Studios ni à Microsoft. Utilisez-le conformément au respect des règles de développement locales.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        Projet MC Launcher — Développé avec passion.
+    </footer>
+
+</body>
+</html>
