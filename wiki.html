@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MC Launcher - Base de Connaissances</title>
+    <style>
+        :root {
+            --bg-color: #1e1e2e;
+            --container-bg: #11111b;
+            --accent-color: #a6e3a1;
+            --text-color: #cdd6f4;
+            --text-muted: #a6adc8;
+            --card-bg: #181825;
+            --border-color: #313244;
+            --blue: #89b4fa;
+            --red: #f38ba8;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        nav {
+            background-color: var(--container-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--red);
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            margin-bottom: 40px;
+        }
+
+        /* Style des sections d'aide (FAQ) */
+        .faq-item {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .faq-trigger {
+            padding: 20px;
+            background: none;
+            border: none;
+            color: #ffffff;
+            width: 100%;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-trigger:hover {
+            color: var(--blue);
+        }
+
+        .faq-content {
+            padding: 0 20px 20px 20px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            border-top: 1px solid transparent;
+        }
+
+        code {
+            background-color: var(--container-bg);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: var(--red);
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">MC LAUNCHER</a>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="download.html">Télécharger</a></li>
+            <li><a href="status.html">Statut</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Documentation & Guide</h1>
+        <p class="subtitle">Tout ce qu'il faut savoir pour configurer et utiliser le launcher personnalisé.</p>
+
+        <div class="faq-item">
+            <button class="faq-trigger">How-To : Changer son Skin localement</button>
+            <div class="faq-content">
+                <p>Pour appliquer votre propre apparence en jeu :</p>
+                1. Lancez le launcher et cliquez sur le bouton <strong>"Choisir Skin (.png)"</strong>.<br>
+                2. Sélectionnez votre fichier d'image sur votre ordinateur.<br>
+                3. Lancez le jeu. Une fois dans les menus de Minecraft, allez dans <strong>Options > Packs de ressources</strong> et activez le pack nommé <code>SkinPerso</code>.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-trigger">Comment fonctionne l'allocation automatique de RAM ?</button>
+            <div class="faq-content">
+                Le launcher analyse la mémoire vive (RAM) totale disponible sur votre machine grâce au module <code>psutil</code>. Par sécurité et pour éviter les ralentissements du système d'exploitation Windows, il attribue automatiquement <strong>75%</strong> de cette capacité au jeu par défaut. Vous pouvez modifier cette valeur manuellement dans la case dédiée avant de lancer le jeu.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-trigger">⚠️ Sécurité : Utilisation du Kill Switch (Arrêt d'urgence)</button>
+            <div class="faq-content">
+                Si votre jeu plante, se bloque sur un écran noir, ou consomme trop de ressources, un écouteur matériel tourne en arrière-plan. Appuyez simultanément sur les touches <code>ÉCHAP</code> + <code>X</code> + <code>K</code>. Le processus <code>javaw.exe</code> sera immédiatement tué par Windows et l'interface du launcher réapparaîtra.
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
