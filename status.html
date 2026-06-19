@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MC Launcher - État des Services</title>
+    <style>
+        :root {
+            --bg-color: #1e1e2e;
+            --container-bg: #11111b;
+            --accent-color: #a6e3a1;
+            --text-color: #cdd6f4;
+            --text-muted: #a6adc8;
+            --card-bg: #181825;
+            --border-color: #313244;
+            --red: #f38ba8;
+            --green: #a6e3a1;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: var(--container-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--red);
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .global-status {
+            background-color: rgba(166, 227, 161, 0.1);
+            border: 1px solid var(--green);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--green);
+            margin-bottom: 40px;
+        }
+
+        .status-list {
+            background-color: var(--container-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 10px 20px;
+        }
+
+        .status-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .status-item:last-child {
+            border-bottom: none;
+        }
+
+        .service-name {
+            font-weight: bold;
+            font-size: 1.05rem;
+        }
+
+        .service-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .badge {
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .badge.online {
+            background-color: var(--green);
+            color: #11111b;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">MC LAUNCHER</a>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="download.html">Télécharger</a></li>
+            <li><a href="wiki.html">Wiki</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="global-status" id="global-msg">
+            🟢 TOUS LES SYSTÈMES SONT OPÉRATIONNELS
+        </div>
+
+        <div class="status-list">
+            <div class="status-item">
+                <div>
+                    <div class="service-name">Serveur de Téléchargement</div>
+                    <div class="service-desc">Distribution des scripts d'installation (GitHub CDN)</div>
+                </div>
+                <span class="badge online">Opérationnel</span>
+            </div>
+
+            <div class="status-item">
+                <div>
+                    <div class="service-name">Authentification Session Microsoft</div>
+                    <div class="service-desc">Vérification de l'état réseau distant de Mojang</div>
+                </div>
+                <span class="badge online">En Ligne</span>
+            </div>
+
+            <div class="status-item">
+                <div>
+                    <div class="service-name">Dépôt des Assets & Index (.jar)</div>
+                    <div class="service-desc">Téléchargement des dépendances natives de Minecraft</div>
+                </div>
+                <span class="badge online">Stable</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
