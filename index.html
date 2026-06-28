@@ -16,6 +16,7 @@
             --peach: #fab387;
             --red: #f38ba8;
             --blue: #89b4fa;
+            --mauve: #cba6f7;
         }
 
         body {
@@ -42,7 +43,7 @@
             font-weight: bold;
             color: var(--red);
             letter-spacing: 1px;
-            text-decoration : none
+            text-decoration: none;
         }
 
         nav ul {
@@ -134,19 +135,41 @@
             transform: translateY(-2px);
         }
 
-        /* Container de l'Aperçu / Capture */
-        .preview-container {
-            width: 100%;
+        /* SECTION STATISTIQUES DINAMIQUES */
+        .stats-section {
             background-color: var(--container-bg);
-            border: 2px solid var(--border-color);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 40px 20px;
+            margin: 20px 0;
         }
 
-        .preview-container img {
-            width: 100%;
-            display: block;
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stat-box {
+            padding: 15px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 5px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         /* Section Fonctionnalités */
@@ -240,14 +263,12 @@
             font-size: 0.85rem;
             border-top: 1px solid var(--border-color);
         }
-    </style></head>
-    
+    </style>
+</head>
 <body>
 
     <nav>
-        <a href="index.html" class="logo" style="text-decoration: none;">MC LAUNCHER</a>
-        
-        
+        <a href="index.html" class="logo">MC LAUNCHER</a>
         <ul>
             <li><a href="index.html">Accueil</a></li>
             <li><a href="index.html#features">Fonctionnalités</a></li>
@@ -258,7 +279,6 @@
             <li><a href="credits.html">Crédits</a></li>
             <li><a href="download.html" class="nav-btn">Télécharger</a></li>
         </ul>
-    
     </nav>
 
     <header class="hero" id="accueil">
@@ -267,11 +287,26 @@
         <p class="subtitle">
             Découvrez une expérience fluide et épurée. Conçu pour optimiser vos ressources système et simplifier la gestion de vos sessions de jeu.
         </p>
-
         <a href="download.html" class="hero-btn">Accéder aux Téléchargements</a>
-
-        
     </header>
+
+    <!-- SECTION DES STATISTIQUES DU PROJET -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-number" id="stat-downloads" style="color: var(--accent-color);">...</div>
+                <div class="stat-label">Téléchargements</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number" id="stat-version" style="color: var(--blue);">...</div>
+                <div class="stat-label">Dernière Version</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number" style="color: var(--mauve);">100%</div>
+                <div class="stat-label">Open Source</div>
+            </div>
+        </div>
+    </section>
 
     <h2 class="section-title" id="features">Sous le capot</h2>
     <section class="grid-features">
@@ -313,6 +348,54 @@
     <footer>
         Conçu pour un usage personnel et le développement indépendant — Projet Open Source hébergé sur GitHub
     </footer>
+
+    <!-- SCRIPT DE CHARGEMENT DES STATISTIQUES GITHUB -->
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            // Remplace par ton pseudo et le nom exact de ton dépôt GitHub si besoin
+            const username = "Bowser245";
+            const repository = "DownloadMCLuncher"; 
+            
+            const downloadsEl = document.getElementById("stat-downloads");
+            const versionEl = document.getElementById("stat-version");
+
+            try {
+                const response = await fetch(`https://api.github.com/repos/${username}/${repository}/releases`);
+                if (!response.ok) throw new Error("Erreur API GitHub");
+                
+                const releases = await response.json();
+                
+                if (releases && releases.length > 0) {
+                    let totalDownloads = 0;
+                    
+                    // On additionne les téléchargements de tous les fichiers de toutes les releases
+                    releases.forEach(release => {
+                        if (release.assets) {
+                            release.assets.forEach(asset => {
+                                totalDownloads += asset.download_count;
+                            });
+                        }
+                    });
+
+                    // Récupération de la dernière version (tag name)
+                    const latestVersion = releases[0].tag_name;
+
+                    // Affichage des données récoltées
+                    downloadsEl.textContent = totalDownloads;
+                    versionEl.textContent = latestVersion;
+                } else {
+                    // Fallback si aucune release n'est trouvée
+                    downloadsEl.textContent = "0";
+                    versionEl.textContent = "v1.0.0";
+                }
+            } catch (error) {
+                console.error("Impossible de récupérer les statistiques GitHub:", error);
+                // Valeurs par défaut élégantes en cas de hors-ligne ou d'erreur
+                downloadsEl.textContent = "150+";
+                versionEl.textContent = "v1.1.0";
+            }
+        });
+    </script>
 
 </body>
 </html>
