@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MC Launcher - Pack de Ressource</title>
+    <style>
+        :root {
+            --bg-color: #1e1e2e;
+            --container-bg: #11111b;
+            --accent-color: #a6e3a1;
+            --text-color: #cdd6f4;
+            --text-muted: #a6adc8;
+            --card-bg: #181825;
+            --border-color: #313244;
+            --blue: #89b4fa;
+            --red: #f38ba8;
+            --peach: #fab387;
+            --mauve: #cba6f7;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Barre de Navigation */
+        nav {
+            background-color: var(--container-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--red);
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 1.05rem;
+        }
+
+        /* Conteneur global de la galerie */
+        .packs-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Boîte d'un Pack générée en JS */
+        .pack-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .pack-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 12px;
+            object-fit: cover;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            background-color: var(--container-bg);
+        }
+
+        .pack-info {
+            flex-grow: 1;
+        }
+
+        .pack-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 8px;
+        }
+
+        .pack-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin: 0;
+        }
+
+        .mc-version {
+            background-color: rgba(250, 179, 135, 0.15);
+            color: var(--peach);
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            border: 1px solid rgba(250, 179, 135, 0.3);
+        }
+
+        .pack-description {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin: 0 0 20px 0;
+        }
+
+        .btn-zip {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--mauve);
+            border: 2px solid var(--mauve);
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 10px 24px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-zip:hover {
+            background-color: var(--mauve);
+            color: #11111b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(203, 166, 247, 0.3);
+        }
+
+        .loading-text {
+            text-align: center;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #585b70;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo" style="text-decoration: none;">MC LAUNCHER</a>
+        
+        
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="index.html#features">Fonctionnalités</a></li>
+            <li><a href="index.html#actualites">Actualités</a></li>
+            <li><a href="resourcepack.html">Pack</a></li>
+            <li><a href="wiki.html">Wiki</a></li>
+            <li><a href="status.html">Statut</a></li>
+            <li><a href="credits.html">Crédits</a></li>
+            <li><a href="download.html" class="nav-btn">Télécharger</a></li>
+        </ul>
+    
+    </nav>
+
+    <div class="container">
+        <h1>Pack de Ressource du Créateur</h1>
+        <p class="subtitle">Téléchargez les optimisations visuelles officielles pour votre jeu.</p>
+
+        <div id="packs-gallery" class="packs-gallery">
+            <p class="loading-text">Chargement des packs de ressources...</p>
+        </div>
+    </div>
+
+    <footer>
+        Espace de personnalisation graphique — MC Launcher
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            const gallery = document.getElementById("packs-gallery");
+            
+            // Liste des images de secours stockées dans /Packs/DefaultIcons/
+            // Tu peux renommer ces éléments selon les fichiers présents dans ton dossier
+            const defaultIcons = ["default1.png", "default2.png", "default3.png", "default4.png"];
+            
+            // Fonction permettant de tirer une icône de secours aléatoire
+            const getRandomDefaultIcon = () => {
+                const randomIndex = Math.floor(Math.random() * defaultIcons.length);
+                return `Packs/DefaultIcons/${defaultIcons[randomIndex]}`;
+            };
+
+            try {
+                // 1. Récupération de l'index des packs
+                const responseIndex = await fetch("Packs/index.json");
+                if (!responseIndex.ok) throw new Error("Impossible de charger l'index des packs.");
+                const packNames = await responseIndex.json();
+                
+                gallery.innerHTML = "";
+
+                // 2. Boucle de chargement sur chaque pack listé
+                for (const name of packNames) {
+                    try {
+                        const responsePack = await fetch(`Packs/${name}.json`);
+                        if (!responsePack.ok) continue; 
+                        
+                        const packData = await responsePack.json();
+
+                        const iconPath = `Packs/Icons/${packData.name}.png`;
+                        const zipPath = `Packs/Download/${packData.name}.zip`;
+
+                        // 3. Création et injection de la structure HTML de la carte
+                        const card = document.createElement("div");
+                        card.className = "pack-card";
+                        
+                        // L'attribut onerror bascule sur le dossier DefaultIcons en cas d'absence du fichier ciblé
+                        card.innerHTML = `
+                            <img src="${iconPath}" 
+                                 alt="Icône du pack ${packData.title}" 
+                                 class="pack-icon" 
+                                 onerror="this.onerror=null; this.src='${getRandomDefaultIcon()}';">
+                            <div class="pack-info">
+                                <div class="pack-header">
+                                    <h2 class="pack-name">${packData.title}</h2>
+                                    <span class="mc-version">${packData.version}</span>
+                                </div>
+                                <p class="pack-description">${packData.description}</p>
+                                <a href="${zipPath}" class="btn-zip">Télécharger le .ZIP</a>
+                            </div>
+                        `;
+
+                        gallery.appendChild(card);
+
+                    } catch (err) {
+                        console.error(`Erreur lors du chargement du pack : ${name}`, err);
+                    }
+                }
+
+                if (gallery.children.length === 0) {
+                    gallery.innerHTML = "<p class='loading-text'>Aucun pack de ressource n'est disponible pour le moment.</p>";
+                }
+
+            } catch (error) {
+                console.error(error);
+                gallery.innerHTML = "<p class='loading-text' style='color: var(--red);'>Erreur lors du chargement des modules.</p>";
+            }
+        });
+    </script>
+
+</body>
+</html>
