@@ -1,5 +1,5 @@
-# MC
-*https://bowser245.github.io/MC/index.html*
+# mc-opti
+*https://bowser245.github.io/mc-opti*
 
 pour relancer le launcher vas ici:
 
