@@ -15,6 +15,7 @@
             --border-color: #313244;
             --red: #f38ba8;
             --green: #a6e3a1;
+            --orange: #fab387;
         }
 
         body {
@@ -47,12 +48,28 @@
             gap: 25px;
             margin: 0;
             padding: 0;
+            align-items: center;
         }
 
         nav ul li a {
             color: var(--text-muted);
             text-decoration: none;
             font-size: 0.95rem;
+        }
+
+        /* Style bouton téléchargement pour l'alignement avec index */
+        .nav-btn {
+            background-color: transparent;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color) !important;
+            padding: 6px 15px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background-color: var(--accent-color);
+            color: #11111b !important;
         }
 
         .container {
@@ -62,15 +79,26 @@
         }
 
         .global-status {
-            background-color: rgba(166, 227, 161, 0.1);
-            border: 1px solid var(--green);
             padding: 20px;
             border-radius: 10px;
             text-align: center;
             font-size: 1.2rem;
             font-weight: bold;
-            color: var(--green);
             margin-bottom: 40px;
+            transition: all 0.3s ease;
+        }
+
+        /* Variantes d'états pour la bannière principale */
+        .global-status.ok {
+            background-color: rgba(166, 227, 161, 0.1);
+            border: 1px solid var(--green);
+            color: var(--green);
+        }
+
+        .global-status.issue {
+            background-color: rgba(243, 139, 168, 0.1);
+            border: 1px solid var(--red);
+            color: var(--red);
         }
 
         .status-list {
@@ -108,10 +136,23 @@
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: bold;
+            text-align: center;
+            min-width: 90px;
+            transition: all 0.2s ease;
         }
 
         .badge.online {
             background-color: var(--green);
+            color: #11111b;
+        }
+
+        .badge.offline {
+            background-color: var(--red);
+            color: #11111b;
+        }
+
+        .badge.checking {
+            background-color: var(--orange);
             color: #11111b;
         }
     </style>
@@ -119,9 +160,7 @@
 <body>
 
     <nav>
-        <a href="index.html" class="logo" style="text-decoration: none;">MC LAUNCHER</a>
-        
-        
+        <a href="index.html" class="logo">MC LAUNCHER</a>
         <ul>
             <li><a href="index.html">Accueil</a></li>
             <li><a href="index.html#features">Fonctionnalités</a></li>
@@ -132,12 +171,11 @@
             <li><a href="credits.html">Crédits</a></li>
             <li><a href="download.html" class="nav-btn">Télécharger</a></li>
         </ul>
-    
     </nav>
 
     <div class="container">
-        <div class="global-status" id="global-msg">
-            🟢 TOUS LES SYSTÈMES SONT OPÉRATIONNELS
+        <div class="global-status ok" id="global-msg">
+            ⏳ ANALYSE DU RÉSEAU EN COURS...
         </div>
 
         <div class="status-list">
@@ -146,7 +184,7 @@
                     <div class="service-name">Serveur de Téléchargement</div>
                     <div class="service-desc">Distribution des scripts d'installation (GitHub CDN)</div>
                 </div>
-                <span class="badge online">Opérationnel</span>
+                <span class="badge checking" id="badge-github">Analyse...</span>
             </div>
 
             <div class="status-item">
@@ -154,18 +192,85 @@
                     <div class="service-name">Authentification Session Microsoft</div>
                     <div class="service-desc">Vérification de l'état réseau distant de Mojang</div>
                 </div>
-                <span class="badge online">En Ligne</span>
+                <span class="badge checking" id="badge-auth">Analyse...</span>
             </div>
 
             <div class="status-item">
                 <div>
-                    <div class="service-name">Dépôt des Assets & Index (.jar)</div>
+                    <div class="service-name">Dépôt des Assets ou Index (.jar)</div>
                     <div class="service-desc">Téléchargement des dépendances natives de Minecraft</div>
                 </div>
-                <span class="badge online">Stable</span>
+                <span class="badge checking" id="badge-assets">Analyse...</span>
             </div>
         </div>
     </div>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            const globalMsg = document.getElementById("global-msg");
+            const badgeGithub = document.getElementById("badge-github");
+            const badgeAuth = document.getElementById("badge-auth");
+            const badgeAssets = document.getElementById("badge-assets");
+
+            // Variables de suivi d'erreur
+            let networkIssues = false;
+
+            // 1. Test du serveur de téléchargement (GitHub API ou CDN)
+            try {
+                const res = await fetch("https://api.github.com", { method: "HEAD" });
+                if (res.ok) {
+                    badgeGithub.textContent = "Opérationnel";
+                    badgeGithub.className = "badge online";
+                } else {
+                    throw new Error();
+                }
+            } catch (e) {
+                badgeGithub.textContent = "Panne";
+                badgeGithub.className = "badge offline";
+                networkIssues = true;
+            }
+
+            // 2. Test des services d'authentification Microsoft ou Mojang
+            try {
+                // Utilisation de l'API publique d'état ou d'API session sans paramètres pour voir si elle répond
+                const res = await fetch("https://api.minecraftservices.com/minecraft", { method: "GET" });
+                // Même si on se fait rejeter (401 ou 404), tant que le serveur répond, c'est qu'il est en ligne
+                if (res.status !== 0) {
+                    badgeAuth.textContent = "En Ligne";
+                    badgeAuth.className = "badge online";
+                } else {
+                    throw new Error();
+                }
+            } catch (e) {
+                badgeAuth.textContent = "Indisponible ou Inaccessible";
+                badgeAuth.className = "badge offline";
+                networkIssues = true;
+            }
+
+            // 3. Test du dépôt d'assets (Textures, Skins et Fichiers de jeu)
+            try {
+                const res = await fetch("https://sessionserver.mojang.com", { method: "GET" });
+                if (res.status !== 0) {
+                    badgeAssets.textContent = "Stable";
+                    badgeAssets.className = "badge online";
+                } else {
+                    throw new Error();
+                }
+            } catch (e) {
+                badgeAssets.textContent = "Ralenti";
+                badgeAssets.className = "badge offline";
+                networkIssues = true;
+            }
+
+            // 4. Mise à jour de la bannière principale selon les résultats
+            if (networkIssues) {
+                globalMsg.textContent = "⚠️ CERTAINS SERVICES RENCONTRENT DES PERTURBATIONS";
+                globalMsg.className = "global-status issue";
+            } else {
+                globalMsg.textContent = "🟢 TOUS LES SYSTÈMES SONT OPÉRATIONNELS";
+                globalMsg.className = "global-status ok";
+            }
+        });
+    </script>
 </body>
 </html>
