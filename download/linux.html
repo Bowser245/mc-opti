@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Custom Launcher - Téléchargement</title>
+    <style>
+        :root {
+            --bg-color: #1e1e2e;
+            --container-bg: #11111b;
+            --accent-color: #a6e3a1;
+            --text-color: #cdd6f4;
+            --text-muted: #a6adc8;
+            --card-bg: #181825;
+            --border-color: #313244;
+            --blue: #89b4fa;
+            --red: #f38ba8;
+            --peach: #fab387;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        nav {
+            background-color: var(--container-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--red);
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .download-box {
+            background-color: var(--container-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin-top: 30px;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        .btn-install {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #11111b;
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 18px 45px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 15px rgba(166, 227, 161, 0.3);
+        }
+
+        .btn-install:hover {
+            background-color: var(--blue);
+            box-shadow: 0 4px 15px rgba(137, 180, 250, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .steps-container {
+            margin-top: 40px;
+            text-align: left;
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .steps-container h3 {
+            margin-top: 0;
+            color: #ffffff;
+        }
+
+        .step-item {
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .step-item strong {
+            color: var(--peach);
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo" style="text-decoration: none;">MC LAUNCHER</a>
+        
+        
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="index.html#features">Fonctionnalités</a></li>
+            <li><a href="index.html#actualites">Actualités</a></li>
+            <li><a href="resourcepack.html">Pack</a></li>
+            <li><a href="wiki.html">Wiki</a></li>
+            <li><a href="status.html">Statut</a></li>
+            <li><a href="credits.html">Crédits</a></li>
+            <li><a href="download.html" class="nav-btn">Télécharger</a></li>
+        </ul>
+    
+    </nav>
+
+    <div class="container">
+        <h1>Téléchargement</h1>
+        <p class="subtitle">Installez l'environnement complet et le launcher en un seul clic.</p>
+
+        <div class="download-box">
+            <a href="https://github.com/Bowser245/DownloadMCLuncher/releases/download/v1.0.0/MinecraftInstallationSetup.exe" class="btn-install">TÉLÉCHARGER (.tar.gz)</a>
+            <div class="instructions-wrapper" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 40px auto; padding: 20px; background-color: #f8f9fa; border-radius: 8px;">
+
+    <h3 style="color: #1a1a1a; border-bottom: 2px solid #eaecef; padding-bottom: 8px; margin-top: 10px;">Comment l'utiliser désormais ?</h3>
+    
+    <ol style="padding-left: 20px; margin: 0;">
+        <li style="margin-bottom: 25px;">
+            <p style="margin-bottom: 10px; font-weight: 500;">Lancez ce premier script une fois pour tout configurer et créer le raccourci :</p>
+            <div class="code-block-container" style="background-color: #1e1e1e; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); margin-top: 10px;">
+                <div class="code-header" style="display: flex; justify-content: space-between; align-items: center; background-color: #2d2d2d; padding: 8px 16px; color: #bcbcbc; font-size: 0.85rem; font-family: monospace;">
+                    <span>Bash</span>
+                    <button class="copy-button" onclick="copierCode(this)" style="background-color: #3a3a3a; color: #ffffff; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 0.8rem; transition: background 0.2s ease, transform 0.1s ease; display: flex; align-items: center; gap: 5px; font-family: inherit;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                        <span>Copier</span>
+                    </button>
+                </div>
+                <pre style="margin: 0; padding: 16px; overflow-x: auto;"><code style="font-family: 'Fira Code', Consolas, Monaco, monospace; color: #dcdcdc; font-size: 0.95rem;">chmod +x setupper.sh
+<span style="color: #569cd6; font-weight: bold;">source</span> ./setupper.sh</code></pre>
+            </div>
+        </li>
+
+        <li style="margin-bottom: 25px;">
+            <p style="margin-bottom: 10px; font-weight: 500;">Les fois suivantes, pour relancer votre script Python directement dans son environnement virtuel sans tout retélécharger, il vous suffira d'exécuter le nouveau fichier généré :</p>
+            <div class="code-block-container" style="background-color: #1e1e1e; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); margin-top: 10px;">
+                <div class="code-header" style="display: flex; justify-content: space-between; align-items: center; background-color: #2d2d2d; padding: 8px 16px; color: #bcbcbc; font-size: 0.85rem; font-family: monospace;">
+                    <span>Bash</span>
+                    <button class="copy-button" onclick="copierCode(this)" style="background-color: #3a3a3a; color: #ffffff; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 0.8rem; transition: background 0.2s ease, transform 0.1s ease; display: flex; align-items: center; gap: 5px; font-family: inherit;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                        <span>Copier</span>
+                    </button>
+                </div>
+                <pre style="margin: 0; padding: 16px; overflow-x: auto;"><code style="font-family: 'Fira Code', Consolas, Monaco, monospace; color: #dcdcdc; font-size: 0.95rem;">./run.sh</code></pre>
+            </div>
+        </li>
+    </ol>
+
+    <script>
+        function copierCode(button) {
+            const container = button.closest('.code-block-container');
+            const codeText = container.querySelector('code').innerText;
+
+            navigator.clipboard.writeText(codeText).then(() => {
+                const originalHTML = button.innerHTML;
+                const originalBg = button.style.backgroundColor;
+                
+                // Effet visuel au clic
+                button.innerHTML = "Copié !";
+                button.style.backgroundColor = "#28a745";
+
+                setTimeout(() => {
+                    button.innerHTML = originalHTML;
+                    button.style.backgroundColor = originalBg;
+                }, 2000);
+            }).catch(err => {
+                console.error("Erreur lors de la copie : ", err);
+            });
+        }
+    </script>
+</div>
+            
+        </div>
+    </div>
+
+</body>
+</html>
