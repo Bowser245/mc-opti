@@ -90,55 +90,66 @@
             margin: 0 auto 30px auto;
         }
 
-        .btn-install {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: #11111b;
+        /* --- NOUVEAU STYLE POUR LA SÉLECTION D'OS --- */
+        .os-selection {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .os-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 30px;
+            width: 240px;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: all 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .os-card:hover {
+            border-color: var(--blue);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(137, 180, 250, 0.15);
+        }
+
+        .os-icon {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 15px;
+            object-fit: contain;
+        }
+
+        .os-name {
             font-size: 1.4rem;
             font-weight: bold;
-            text-decoration: none;
-            padding: 18px 45px;
-            border-radius: 8px;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 15px rgba(166, 227, 161, 0.3);
-        }
-
-        .btn-install:hover {
-            background-color: var(--blue);
-            box-shadow: 0 4px 15px rgba(137, 180, 250, 0.4);
-            transform: translateY(-2px);
-        }
-
-        .steps-container {
-            margin-top: 40px;
-            text-align: left;
-            background-color: var(--card-bg);
-            padding: 25px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-        }
-
-        .steps-container h3 {
-            margin-top: 0;
             color: #ffffff;
+            margin: 5px 0;
         }
 
-        .step-item {
-            margin-bottom: 15px;
-            font-size: 0.95rem;
-            color: var(--text-muted);
-        }
-
-        .step-item strong {
+        .os-extension {
+            font-family: monospace;
+            background-color: var(--container-bg);
             color: var(--peach);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            border: 1px solid var(--border-color);
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="index.html" class="logo" style="text-decoration: none;">MC LAUNCHER</a>
-        
+        <a href="index.html" class="logo">MC LAUNCHER</a>
         
         <ul>
             <li><a href="index.html">Accueil</a></li>
@@ -150,27 +161,25 @@
             <li><a href="credits.html">Crédits</a></li>
             <li><a href="download.html" class="nav-btn">Télécharger</a></li>
         </ul>
-    
     </nav>
 
     <div class="container">
         <h1>Téléchargement</h1>
-        <p class="subtitle">Installez l'environnement complet et le launcher en un seul clic.</p>
+        <p class="subtitle">Mais juste avant, sur quel système d'exploitation tournez-vous ?</p>
 
         <div class="download-box">
-            <a href="https://github.com/Bowser245/DownloadMCLuncher/releases/download/v1.0.0/MinecraftInstallationSetup.exe" class="btn-install">TÉLÉCHARGER (.EXE)</a>
-            
-            <div class="steps-container">
-                <h3>📦 Ce que contient cet installateur automatique :</h3>
-                <div class="step-item">
-                    <strong>1. Chocolatey :</strong> Le gestionnaire de paquets Windows pour automatiser proprement les outils.
-                </div>
-                <div class="step-item">
-                    <strong>2. Environnement Java :</strong> Téléchargement ou configuration automatique des dépendances d'exécution de Minecraft.
-                </div>
-                <div class="step-item">
-                    <strong>3. MC Launcher (startup.exe) :</strong> L'application finale compilée prête à l'emploi sur votre bureau.
-                </div>
+            <div class="os-selection">
+                <a href="./#windows-link" class="os-card">
+                    <img src="os-icons/windows.png" alt="Windows" class="os-icon">
+                    <span class="os-name">Windows</span>
+                    <span class="os-extension">.exe</span>
+                </a>
+
+                <a href="./#linux-link" class="os-card">
+                    <img src="os-icons/linux.png" alt="Linux" class="os-icon">
+                    <span class="os-name">Linux</span>
+                    <span class="os-extension">.tar.gz</span>
+                </a>
             </div>
         </div>
     </div>
