@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Custom Launcher - Téléchargement</title>
+    <style>
+        :root {
+            --bg-color: #1e1e2e;
+            --container-bg: #11111b;
+            --accent-color: #a6e3a1;
+            --text-color: #cdd6f4;
+            --text-muted: #a6adc8;
+            --card-bg: #181825;
+            --border-color: #313244;
+            --blue: #89b4fa;
+            --red: #f38ba8;
+            --peach: #fab387;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        nav {
+            background-color: var(--container-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--red);
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .download-box {
+            background-color: var(--container-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin-top: 30px;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        .btn-install {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #11111b;
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 18px 45px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 15px rgba(166, 227, 161, 0.3);
+        }
+
+        .btn-install:hover {
+            background-color: var(--blue);
+            box-shadow: 0 4px 15px rgba(137, 180, 250, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .steps-container {
+            margin-top: 40px;
+            text-align: left;
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .steps-container h3 {
+            margin-top: 0;
+            color: #ffffff;
+        }
+
+        .step-item {
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .step-item strong {
+            color: var(--peach);
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="https://bowser245.github.io/mc-opti/index.html" class="logo" style="text-decoration: none;">MC LAUNCHER</a>
+        
+        
+        <ul>
+            
+            <li><a href="https://bowser245.github.io/mc-opti/download.html" class="nav-btn">RETOUR</a></li>
+        </ul>
+    
+    </nav>
+
+    <div class="container">
+        <h1>Téléchargement</h1>
+        <p class="subtitle">Installez l'environnement complet et le launcher en un seul clic.</p>
+        <h3>Éxécutez ceci avant de lancer :</h3><br>
+        <div data-code-src="code2"></div><br>
+        <div class="download-box">
+            <a href="https://github.com/Bowser245/DownloadMCLuncher/raw/refs/heads/main/downloader.zip" class="btn-install">TÉLÉCHARGER (.zip)</a>
+            <div class="instructions-wrapper" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 40px auto; padding: 20px; background-color: #f8f9fa; border-radius: 8px;">
+            
+        <h3>Ou copiez le code :</h3><br>
+        <div data-code-src="code1"></div>
+        <script src="https://bowser245.github.io/gpt-js/code-shower.js"></script>
+
+<script>
+        // On configure les fichiers cibles et leurs descriptions
+        window.CodeState.setup({
+           code1: { filename: "https://github.com/Bowser245/DownloadMCLuncher/raw/refs/heads/main/startup.py" },
+          code2: { filename: "https://github.com/Bowser245/DownloadMCLuncher/raw/refs/heads/main/cmd.bash" }
+        });
+
+        // On lance le chargement automatique
+        window.CodeState.init();
+</script>
+            
+        </div>
+    </div>
+
+</body>
+</html>
